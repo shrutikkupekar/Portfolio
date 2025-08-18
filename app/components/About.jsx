@@ -1,4 +1,4 @@
-import { assets, infoList } from '@/assets/assets';
+import { assets, infoList, toolsData } from '@/assets/assets';
 import Image from 'next/image';
 import React from 'react';
 
@@ -20,7 +20,8 @@ const About = () => {
             Having worked in dynamic startup environments, I bring more than just technical skills to the table. I've led client meetings, handled hiring and onboarding, managed Agile sprint planning, and contributed to brand-building efforts — experiences that have shaped me into a well-rounded team contributor. I thrive in fast-paced settings where I can collaborate across roles, learn quickly, and deliver with impact.</p>
           <ul className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
             {infoList.map(({ icon, title, description }, index) => (
-              <li key={index} className="flex items-start gap-4 border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer">
+              <li
+                key={index} className="flex items-start gap-4 border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:shadow-lg hover:shadow-black hover:-translate-y-1 duration-500">
                 <Image
                   src={icon}
                   alt={title}
@@ -30,6 +31,19 @@ const About = () => {
                   <h3 className="font-semibold text-lg">{title}</h3>
                   <p className="text-sm text-gray-600">{description}</p>
                 </div>
+              </li>
+            ))}
+
+          </ul>
+          <h4 className='my-6 text-gray-700 font-Ovo'>Tools I use</h4>
+
+          <ul className='flex items-center gap-3 sm:gap-5'>
+            {toolsData.map((tool, index) => (
+              <li
+                key={index}
+                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:bg-[#fcf4ff] hover:shadow-md hover:-translate-y-1 duration-500 "
+              >
+                <Image src={tool} alt='Tool' className='w-6 sm:w-7' />
               </li>
             ))}
 

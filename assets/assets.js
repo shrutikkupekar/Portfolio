@@ -100,15 +100,37 @@ export const workData = [
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
+  
+  {
+    icon: assets.web_icon,
+    title: 'Full-Stack Web Development',
+    description: 'Building robust, scalable web applications using the MERN stack — from REST APIs to dynamic frontend interfaces.',
+    link: '',
+  },
+  {
+    icon: assets.ui_icon,
+    title: 'UI/UX Design & Implementation',
+    description: 'Designing clean, intuitive, and responsive user interfaces that deliver seamless user experiences across devices.',
+    link: '',
+  },
+  {
+    icon: assets.mobile_icon,
+    title: 'CMS & Low-Code Website Solutions',
+    description: 'Quickly launching powerful websites using platforms like WordPress, Shopify, Webflow, and Bubble for content or e-commerce.',
+    link: '',
+  },
+  {
+    icon: assets.graphics_icon,
+    title: 'Custom Integrations & Automation',
+    description: 'Connecting tools, APIs, and services to streamline workflows and automate processes for improved efficiency.',
+    link: '',
+  },
 ]
 
+
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Tech in Computer Science' },
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript, MERN Stack,Git' },
+    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description:  'M.S. in Computer Science (USA)' },
     { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 5 projects' }
 ];
 

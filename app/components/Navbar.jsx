@@ -1,38 +1,56 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { assets } from '@/assets/assets';
 import Logo from '@/assets/logo.png';
 
 const Navbar = () => {
+  const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef();
 
   const openMenu = () => {
     if (sideMenuRef.current) {
-      sideMenuRef.current.style.transform = 'translateX(0)';
+      sideMenuRef.current.classList.remove('translate-x-64');
+      sideMenuRef.current.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden'; // prevent scroll on mobile
     }
   };
 
   const closeMenu = () => {
     if (sideMenuRef.current) {
-      sideMenuRef.current.style.transform = 'translateX(16rem)';
+      sideMenuRef.current.classList.remove('translate-x-0');
+      sideMenuRef.current.classList.add('translate-x-64');
+      document.body.style.overflow = ''; // allow scroll again
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScroll(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
       {/* Background Image behind Navbar */}
-      <div className="fixed top-0 left-0 w-full h-20 z-40">
+      {/* <div className="fixed top-0 left-0 w-full h-20 z-40">
         <Image
           src={assets.header_bg_color}
           alt="Header Background"
           className="w-full h-full object-cover"
         />
-      </div>
+      </div> */}
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-white ">
+      <nav
+        className={`fixed top-0 left-0 w-full px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
+          isScroll ? 'bg-white bg-opacity-50 backdrop-blur-lg shadow-sm' : ''
+        }`}
+      >
         {/* Logo */}
         <a href="#top">
           <Image src={Logo} alt="Logo" className="w-28 cursor-pointer mr-14" />
@@ -47,33 +65,31 @@ const Navbar = () => {
           <li><a className="font-ovo" href="#contact">Contact me</a></li>
         </ul>
 
-        {/* Right Side Controls */}
+        {/* Right Side Buttons */}
         <div className="flex items-center gap-4">
-          {/* Theme Button (optional) */}
           <button>
-            <Image src={assets.moon_icon} alt="Toggle Theme" className="w-6" />
+            <Image src={assets.moon_icon} alt="Theme Toggle" className="w-6" />
           </button>
 
-          {/* Desktop Contact Button */}
+          {/* Desktop CTA */}
           <a
             href="#contact"
             className="hidden lg:flex items-center gap-2 px-10 py-2.5 border border-gray-500 rounded-full ml-4"
           >
             Contact
-            <Image src={assets.arrow_icon} className="w-3" alt="Arrow icon" />
+            <Image src={assets.arrow_icon} className="w-3" alt="Arrow" />
           </a>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Button */}
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} className="w-6" alt="Open Menu" />
+            <Image src={assets.menu_black} className="w-6" alt="Menu" />
           </button>
         </div>
 
         {/* Mobile Side Menu */}
         <ul
           ref={sideMenuRef}
-          className="nav-ul block md:hidden ml-3 flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-[100] h-screen bg-rose-50 transition-transform duration-500"
-          style={{ transform: 'translateX(16rem)' }}
+          className="nav-ul block md:hidden ml-3 flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-[100] h-screen bg-rose-50 translate-x-64 transition-transform duration-500"
         >
           <div className="absolute right-6 top-6" onClick={closeMenu}>
             <Image src={assets.close_black} alt="Close" className="w-6 cursor-pointer" />
