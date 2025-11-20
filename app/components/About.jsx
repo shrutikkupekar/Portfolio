@@ -21,7 +21,12 @@ const About = () => {
           <ul className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
             {infoList.map(({ icon, title, description }, index) => (
               <li
-                key={index} className="flex items-start gap-4 border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] hover:shadow-lg hover:shadow-black hover:-translate-y-1 duration-500">
+                key={index}
+                className="flex items-start gap-4 border border-gray-400 rounded-xl p-6 cursor-pointer
+             transition-all duration-500 hover:-translate-y-1 hover:shadow-lg
+             hover:bg-[#fcf4ff] dark:hover:bg-white
+             text-[color:var(--page-fg)] dark:hover:text-black"
+              >
                 <Image
                   src={icon}
                   alt={title}
@@ -29,13 +34,13 @@ const About = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{title}</h3>
-                  <p className="text-sm text-gray-600">{description}</p>
+                  <p className="text-sm">{description}</p>
                 </div>
               </li>
             ))}
 
           </ul>
-          <h4 className='my-6 text-gray-700 font-Ovo'>Tools I use</h4>
+          <h4 className='my-6 text-700 font-Ovo'>Tools I use</h4>
 
           <ul className='flex items-center gap-3 sm:gap-5'>
             {toolsData.map((tool, index) => (

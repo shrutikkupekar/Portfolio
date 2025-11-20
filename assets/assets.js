@@ -32,9 +32,14 @@ import mobile_icon from './mobile-icon.png';
 import ui_icon from './ui-icon.png';
 import graphics_icon from './graphics-icon.png';
 import right_arrow from './right-arrow.png';
-import send_icon from './send-icon.png';
+import send_icon from './send_icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
+import files from './files.png';
+import unplug from './unplug.png';
+import github_logo from './github_logo.png';
+import download_icon_bold from './download_icon_bold.png';
+
 
 export const assets = {
     user_image,
@@ -73,30 +78,34 @@ export const assets = {
     right_arrow,
     send_icon,
     right_arrow_bold,
-    right_arrow_bold_dark
+    right_arrow_bold_dark,
+    files,
+    unplug,
+    github_logo,
+    download_icon_bold,
 };
 
 export const workData = [
     {
-        title: 'Frontend project',
+        title: 'Full Stack E-commerce website',
         description: 'Web Design',
-        bgImage: '/work-1.png',
+        bgImage: '/work1.png',
     },
     {
-        title: 'Geo based app',
+        title: 'AI Code generator',
         description: 'Mobile App',
-        bgImage: '/work-2.png',
+        bgImage: '/work2.png',
     },
-    {
-        title: 'Photography site',
-        description: 'Web Design',
-        bgImage: '/work-3.png',
-    },
-    {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
-        bgImage: '/work-4.png',
-    },
+    // {
+    //     title: 'Photography site',
+    //     description: 'Web Design',
+    //     bgImage: '/work-3.png',
+    // },
+    // {
+    //     title: 'UI/UX designing',
+    //     description: 'UI/UX Design',
+    //     bgImage: '/work-4.png',
+    // },
 ]
 
 export const serviceData = [
@@ -114,13 +123,13 @@ export const serviceData = [
     link: '',
   },
   {
-    icon: assets.mobile_icon,
+    icon: assets.files,
     title: 'CMS & Low-Code Website Solutions',
     description: 'Quickly launching powerful websites using platforms like WordPress, Shopify, Webflow, and Bubble for content or e-commerce.',
     link: '',
   },
   {
-    icon: assets.graphics_icon,
+    icon: assets.unplug,
     title: 'Custom Integrations & Automation',
     description: 'Connecting tools, APIs, and services to streamline workflows and automate processes for improved efficiency.',
     link: '',

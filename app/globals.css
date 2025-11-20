@@ -1,13 +1,56 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @import "tailwindcss";
 
+:root {
+  --page-bg: #ffffff;   /* light */
+  --page-fg: #000000;   /* light text */
+}
 
+html.dark {
+  --page-bg: #11001f;   /* your darktheme */
+  --page-fg: #ffffff;   /* dark text */
+}
+nav {
+  will-change: background-color, color;
+  transition: none !important;
+}
+
+/* Apply globally so no other bg overrides matter */
+html, body {
+  background-color: var(--page-bg) !important;
+  color: var(--page-fg);
+  min-height: 100%;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+.svg-theme-stroke {
+  stroke: var(--page-fg) !important;
+}
 
 /* .nav-ul{
   font-family: Ovo !important;
 } */
+
+/* 🌈 Morphing blob animation */
+@keyframes amoebaMotion {
+  0%, 100% {
+    border-radius: 55% 45% 60% 40% / 60% 45% 55% 40%;
+  }
+  25% {
+    border-radius: 60% 40% 50% 50% / 55% 60% 45% 45%;
+  }
+  50% {
+    border-radius: 45% 55% 65% 35% / 50% 55% 60% 40%;
+  }
+  75% {
+    border-radius: 50% 50% 40% 60% / 60% 50% 40% 50%;
+  }
+}
+
+.animate-amoebaMotion {
+  animation: amoebaMotion 10s ease-in-out infinite;
+}
+
