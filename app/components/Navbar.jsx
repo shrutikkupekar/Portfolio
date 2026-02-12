@@ -4,6 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { assets } from '@/assets/assets';
 import Logo from '@/assets/logo.png';
+import transparentlogo from '@/assets/transparentlogo.png';
+import whiteShrutikLogo from '@/assets/whiteshrutik.png';
+
 
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
@@ -20,19 +23,19 @@ const Navbar = () => {
   }, []);
 
   const toggleTheme = () => {
-  const html = document.documentElement;
-  const newTheme = isDark ? "light" : "dark";
+    const html = document.documentElement;
+    const newTheme = isDark ? "light" : "dark";
 
-  // 1️⃣ Update DOM class instantly (before state)
-  html.classList.remove(isDark ? "dark" : "light");
-  html.classList.add(newTheme);
+    // 1️⃣ Update DOM class instantly (before state)
+    html.classList.remove(isDark ? "dark" : "light");
+    html.classList.add(newTheme);
 
-  // 2️⃣ Store preference
-  localStorage.setItem("theme", newTheme);
+    // 2️⃣ Store preference
+    localStorage.setItem("theme", newTheme);
 
-  // 3️⃣ Update React state after DOM is already updated
-  setIsDark(!isDark);
-};
+    // 3️⃣ Update React state after DOM is already updated
+    setIsDark(!isDark);
+  };
 
 
   const openMenu = () => {
@@ -60,25 +63,28 @@ const Navbar = () => {
   return (
     <>
       <nav
-  className={`fixed top-0 left-0 w-full px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50
+        className={`fixed top-0 left-0 w-full px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50
   duration-0 border-b border-gray-300/50 dark:border-gray-700/50
   backdrop-blur-md shadow-md
   ${isScroll
-    ? isDark
-      ? 'bg-[#120022]/85 text-white'
-      : 'bg-white/80 text-gray-900'
-    : 'bg-transparent text-gray-900 dark:text-white'
-  }`}
->
+            ? isDark
+              ? 'bg-[#120022]/85 text-white'
+              : 'bg-white/80 text-gray-900'
+            : 'bg-transparent text-gray-900 dark:text-white'
+          }`}
+      >
 
 
 
 
 
         {/* Logo */}
-        <a href="#top">
-          <Image src={Logo} alt="Logo" className="w-28 cursor-pointer mr-14" />
-        </a>
+        <Image
+          src={isDark ? whiteShrutikLogo : transparentlogo}
+          alt="Logo"
+          className="w-28 cursor-pointer mr-14"
+        />
+
 
         {/* Desktop Nav Links */}
         <ul

@@ -39,6 +39,10 @@ import files from './files.png';
 import unplug from './unplug.png';
 import github_logo from './github_logo.png';
 import download_icon_bold from './download_icon_bold.png';
+import transparent_logo from './transparentlogo.png';
+import download_dark from './download_dark.png'
+import download_white from './download_white.png'
+
 
 
 export const assets = {
@@ -83,7 +87,11 @@ export const assets = {
     unplug,
     github_logo,
     download_icon_bold,
-};
+    transparent_logo,
+    download_dark,
+    download_white,
+    
+  };
 
 export const workData = [
     {

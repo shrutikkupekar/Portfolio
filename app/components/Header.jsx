@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Typewriter } from 'react-simple-typewriter';
 import { assets } from '@/assets/assets';
+import download_dark from '@/assets/download_dark.png';
+import download_white from '@/assets/download_white.png';
+import downloadIcon from '@/assets/download-icon.png';
+
 
 const Header = () => {
   const line1 = 'Hi I am Shrutik Kupekar';
@@ -89,28 +93,79 @@ const Header = () => {
         {/* Contact Button */}
         <a
           href="#contact"
-          className="w-max flex items-center justify-center gap-2 text-700 border border-[0.5px] border-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-[#fcf4ff] hover:shadow-lg hover:shadow-black hover:-translate-y-1 duration-500"
+          className="w-max flex items-center justify-center gap-2
+             text-700 border border-[0.5px] border-700
+             rounded-full py-3 px-10 mx-auto my-20
+             hover:bg-[#fcf4ff]
+             dark:hover:bg-[#fcf4ff]
+             dark:hover:text-black
+             hover:shadow-lg hover:shadow-black
+             hover:-translate-y-1 duration-500"
         >
           Contact me
           <Image
             src={assets.right_arrow_bold}
             alt="arrow"
-            className="w-4"
+            className="w-4 dark:group-hover:invert"
           />
         </a>
 
+
         {/* Resume Button */}
+
         <a
           href="#"
-          className="w-max flex items-center justify-center gap-2 text-700 border border-[0.5px] border-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-[#fcf4ff] hover:shadow-lg hover:shadow-black hover:-translate-y-1 duration-500"
+          className="
+    group w-max flex items-center justify-center gap-2
+    px-10 py-3 rounded-full
+    border border-gray-900 dark:border-white/50
+    text-gray-900 dark:text-white
+    bg-transparent
+    transition-all duration-300
+    hover:bg-[#fcf4ff]
+    hover:text-black
+    hover:shadow-lg hover:shadow-black
+    hover:-translate-y-1
+  "
         >
+          {/* LIGHT MODE ICON (black) */}
           <Image
-            src={assets.download_icon_bold}
+            src={download_dark}
             alt="download"
-            className="w-4"
+            className="w-4 block dark:hidden"
           />
-          <span className="font-medium">My resume</span>
+
+          {/* DARK MODE ICON (white → black on hover) */}
+          <Image
+            src={download_white}
+            alt="download"
+            className="w-4 hidden dark:block dark:group-hover:hidden"
+          />
+
+          {/* DARK MODE HOVER ICON (black) */}
+          <Image
+            src={download_dark}
+            alt="download"
+            className="w-4 hidden dark:group-hover:block"
+          />
+
+          <span className="font-medium whitespace-nowrap">
+            My resume
+          </span>
         </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
         {/* <a
           href=""
           className="w-max flex items-center justify-center gap-2 text-700 border border-[0.5px] border-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-[#fcf4ff] hover:shadow-lg hover:shadow-black hover:-translate-y-1 duration-500"

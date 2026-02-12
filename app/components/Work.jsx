@@ -33,10 +33,21 @@ const Work = () => {
       </div>
       <a
         href=""
-        className="w-max flex items-center justify-center gap-2 text-700 border border-[0.5px] border-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-[#fcf4ff] hover:shadow-lg hover:shadow-black hover:-translate-y-1 duration-500"
+        className="w-max flex items-center justify-center gap-2
+             text-700 border border-[0.5px] border-700
+             rounded-full py-3 px-10 mx-auto my-20
+             hover:bg-[#fcf4ff]
+             dark:hover:bg-[#fcf4ff]
+             dark:hover:text-black
+             hover:shadow-lg hover:shadow-black
+             hover:-translate-y-1 duration-500"
       >
         Show more
-        <Image src={assets.right_arrow_bold} alt="Right arrow" className="w-4" />
+        <Image
+          src={assets.right_arrow_bold}
+          alt="Right arrow"
+          className="w-4"
+        />
       </a>
 
     </div>
