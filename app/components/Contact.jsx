@@ -10,6 +10,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState({ show: false, text: "", type: "" });
 
@@ -32,6 +33,7 @@ const Contact = () => {
       });
 
       const result = await response.json();
+
       if (result.success) {
         setToast({
           show: true,
@@ -59,25 +61,56 @@ const Contact = () => {
   };
 
   return (
-    <div
-      id="contact"
-      className="w-full px-[12%] py-20 scroll-mt-20"
-    >
+    <div id="contact" className="w-full px-[12%] py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
 
-        {/* LEFT: FORM */}
+        {/* LEFT SIDE: TEXT */}
+        <div className="flex flex-col justify-center space-y-10">
+
+          <div>
+            <h2 className="text-6xl font-Ovo leading-tight">
+              Let’s Connect.
+            </h2>
+
+            <p className="mt-6 text-lg opacity-70 max-w-md">
+              I’m currently open to internships, full-time roles,
+              and exciting collaborations.
+            </p>
+          </div>
+
+          <div className="space-y-5 text-lg">
+
+            <a
+              href="mailto:shrutikskupekar@gmail.com"
+              className="flex items-center gap-4 hover:opacity-70 transition"
+            >
+              <Image src={assets.mail_icon} alt="mail" className="w-5" />
+              shrutikskupekar@gmail.com
+            </a>
+
+            {/* <a
+              href="https://www.linkedin.com/in/shrutik-kupekar/"
+              target="_blank"
+              className="flex items-center gap-4 hover:opacity-70 transition"
+            >
+              <Image src={assets.linkedin_icon} alt="linkedin" className="w-5" />
+              LinkedIn
+            </a> */}
+
+          </div>
+
+        </div>
+
+        {/* RIGHT SIDE: FORM (UNCHANGED) */}
         <div>
           {toast.show && (
             <div
               className={`mx-auto mb-6 px-6 py-3 rounded-full text-white text-sm font-semibold w-fit
-                ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}
-              `}
+                ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
             >
               {toast.text}
             </div>
           )}
-
-          <h2 className="text-center text-5xl mx-auto mt-5 mb-12 font-Ovo">Let's Talk</h2>
 
 
           <form
@@ -95,7 +128,7 @@ const Contact = () => {
                          rounded-lg px-4 py-3 shadow-md
                          focus:outline-none focus:ring-2 focus:ring-gray-700
                          placeholder-gray-700
-                         dark:bg-darktheme dark:text-white dark:border-gray-500"
+                         dark:bg-darktheme dark:border-gray-500"
             />
 
             <input
@@ -109,7 +142,7 @@ const Contact = () => {
                          rounded-lg px-4 py-3 shadow-md
                          focus:outline-none focus:ring-2 focus:ring-gray-700
                          placeholder-gray-700
-                         dark:bg-darktheme dark:text-white dark:border-gray-500"
+                         dark:bg-darktheme dark:border-gray-500"
             />
 
             <textarea
@@ -119,63 +152,42 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full border border-gray-600 bg-white/80 text-gray-900
-                         rounded-lg px-4 py-3 shadow-md resize-y
-                         focus:outline-none focus:ring-2 focus:ring-gray-700
-                         placeholder-gray-700
-                         dark:bg-darktheme dark:text-white dark:border-gray-500"
+              className="
+    w-full
+    border border-gray-600
+    bg-white text-black
+    dark:bg-darktheme
+    rounded-lg px-4 py-3 shadow-md resize-y
+    focus:outline-none focus:ring-2 focus:ring-gray-700
+    placeholder-gray-600 dark:placeholder-gray-400
+  "
             />
 
-            {/* ✅ SUBMIT BUTTON — MATCHES ALL OTHER BUTTONS */}
+
             <button
               type="submit"
               disabled={isSubmitting}
               className="
-    w-max flex items-center justify-center gap-2
-    text-700
-    border border-[0.5px] border-700
-    rounded-full py-3 px-10
-    mx-auto
-    hover:bg-[#fcf4ff]
-    hover:shadow-lg hover:shadow-black
-    hover:-translate-y-1
-    duration-500
-    disabled:opacity-60 disabled:cursor-not-allowed
-  "
+                w-max flex items-center justify-center gap-2
+                text-700
+                border border-[0.5px] border-700
+                rounded-full py-3 px-10
+                mx-auto
+                hover:bg-[#fcf4ff]
+                hover:shadow-lg hover:shadow-black
+                hover:-translate-y-1
+                duration-500
+                disabled:opacity-60 disabled:cursor-not-allowed
+              "
             >
-              {isSubmitting ? 'Sending...' : 'Submit now'}
+              {isSubmitting ? "Sending..." : "Submit now"}
               <Image
                 src={assets.right_arrow_bold}
                 alt="arrow"
                 className="w-4"
               />
             </button>
-
-
-
-
           </form>
-        </div>
-
-        {/* RIGHT: CLEAN MINIMAL BOX */}
-        <div className="relative">
-          <div
-            className="border border-gray-400/60 dark:border-gray-500/40
-                       rounded-3xl p-14
-                       text-[color:var(--page-fg)]
-                       backdrop-blur-md"
-          >
-            <h2 className="text-5xl font-Ovo mb-6 leading-tight">
-              Contact <br />
-              <span className="inline-block mt-2">Us</span>
-            </h2>
-
-            <p className="text-base opacity-80 font-Ovo max-w-md">
-              It is very important for us to keep in touch with you,
-              so we are always ready to answer any question that
-              interests you. Shoot!
-            </p>
-          </div>
         </div>
 
       </div>

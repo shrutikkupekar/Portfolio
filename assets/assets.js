@@ -40,8 +40,15 @@ import unplug from './unplug.png';
 import github_logo from './github_logo.png';
 import download_icon_bold from './download_icon_bold.png';
 import transparent_logo from './transparentlogo.png';
-import download_dark from './download_dark.png'
-import download_white from './download_white.png'
+import download_dark from './download_dark.png';
+import download_white from './download_white.png';
+import fullstack from './fullstack.png';
+import uiux from './uiux.png'; 
+import lowcode from './lowcode.png';
+import custom from './custom.png';
+import dev from './dev.png';
+import linkedin_icon from './linkedin_icon.png';
+
 
 
 
@@ -90,6 +97,13 @@ export const assets = {
     transparent_logo,
     download_dark,
     download_white,
+    fullstack,
+    uiux,
+    lowcode,
+    custom,
+    dev,
+    linkedin_icon,
+
     
   };
 
@@ -119,25 +133,25 @@ export const workData = [
 export const serviceData = [
   
   {
-    icon: assets.web_icon,
+    icon: assets.fullstack,
     title: 'Full-Stack Web Development',
     description: 'Building robust, scalable web applications using the MERN stack — from REST APIs to dynamic frontend interfaces.',
     link: '',
   },
   {
-    icon: assets.ui_icon,
+    icon: assets.lowcode,
     title: 'UI/UX Design & Implementation',
     description: 'Designing clean, intuitive, and responsive user interfaces that deliver seamless user experiences across devices.',
     link: '',
   },
   {
-    icon: assets.files,
+    icon: assets.uiux,
     title: 'CMS & Low-Code Website Solutions',
     description: 'Quickly launching powerful websites using platforms like WordPress, Shopify, Webflow, and Bubble for content or e-commerce.',
     link: '',
   },
   {
-    icon: assets.unplug,
+    icon: assets.custom,
     title: 'Custom Integrations & Automation',
     description: 'Connecting tools, APIs, and services to streamline workflows and automate processes for improved efficiency.',
     link: '',
