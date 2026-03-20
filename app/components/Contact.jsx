@@ -153,13 +153,11 @@ const Contact = () => {
               onChange={handleChange}
               required
               className="
-    w-full
-    border border-gray-600
-    bg-white text-black
-    dark:bg-darktheme
-    rounded-lg px-4 py-3 shadow-md resize-y
-    focus:outline-none focus:ring-2 focus:ring-gray-700
-    placeholder-gray-600 dark:placeholder-gray-400
+    w-full border border-gray-600 bg-white/80 text-gray-900
+                         rounded-lg px-4 py-3 shadow-md
+                         focus:outline-none focus:ring-2 focus:ring-gray-700
+                         placeholder-gray-700
+                         dark:bg-darktheme dark:border-gray-500
   "
             />
 

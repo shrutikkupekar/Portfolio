@@ -139,36 +139,108 @@ backdrop-blur-md transition-all duration-300 hover:opacity-80"
 
           {/* Mobile Menu Button */}
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} className="w-6 dark:invert" alt="Menu" />
+            <Image
+              src={assets.menu_black}
+              className="w-6"
+              style={{ filter: isDark ? 'invert(100%)' : 'invert(20%)' }}
+              alt="Menu"
+            />
           </button>
 
         </div>
 
         {/* Mobile Side Menu */}
         {/* Mobile Side Menu */}
+        {/* <ul
+          ref={sideMenuRef}
+          className="
+    nav-ul block md:hidden ml-3 flex-col gap-4 py-20 px-10
+    fixed right-0 top-0 bottom-0 w-64 z-[100] h-screen
+    bg-white dark:bg-[#120022]
+    text-black dark:text-white
+    translate-x-64 transition-transform duration-500
+    shadow-2xl
+  "
+        > */}
         <ul
           ref={sideMenuRef}
-          className="nav-ul block md:hidden ml-3 flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-[100] h-screen
-  bg-rose-50 dark:bg-darktheme
-  text-black dark:text-white
-  translate-x-64 transition-transform duration-500"
+          className={`
+    nav-ul flex flex-col gap-4 py-20 px-10
+    fixed right-0 top-0 bottom-0 w-64 z-[100] h-screen
+    translate-x-64 transition-transform duration-500
+    shadow-2xl
+    ${isDark ? 'bg-[#120022] text-white' : 'bg-white text-gray-900'}
+  `}
         >
           <div className="absolute right-6 top-6" onClick={closeMenu}>
             <Image
               src={assets.close_black}
               alt="Close"
-              className="w-6 cursor-pointer dark:invert"
+              className="w-6 cursor-pointer"
+              style={{ filter: isDark ? 'invert(100%)' : 'invert(20%)' }}
             />
           </div>
 
-          <li><a className="font-ovo hover:opacity-70 transition" onClick={closeMenu} href="#top">Home</a></li>
-          <li><a className="font-ovo hover:opacity-70 transition" onClick={closeMenu} href="#about">About me</a></li>
-          <li><a className="font-ovo hover:opacity-70 transition" onClick={closeMenu} href="#experience">Experience</a></li>
-          <li><a className="font-ovo hover:opacity-70 transition" onClick={closeMenu} href="#services">Services</a></li>
-          <li><a className="font-ovo hover:opacity-70 transition" onClick={closeMenu} href="#education">Education</a></li>
-          <li><a className="font-ovo hover:opacity-70 transition" onClick={closeMenu} href="#contact">Contact me</a></li>
-        </ul>
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#top"
+            >
+              Home
+            </a>
+          </li>
 
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#about"
+            >
+              About me
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#experience"
+            >
+              Experience
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#services"
+            >
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#education"
+            >
+              Education
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#contact"
+            >
+              Contact me
+            </a>
+          </li>
+        </ul>
       </nav>
     </>
   );
