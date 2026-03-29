@@ -131,30 +131,33 @@ export const workData = [
 ]
 
 export const serviceData = [
-  
   {
     icon: assets.fullstack,
     title: 'Full-Stack Web Development',
     description: 'Building robust, scalable web applications using the MERN stack — from REST APIs to dynamic frontend interfaces.',
     link: '',
+    expertise: 'Proficient in MongoDB, Express.js, React, and Node.js. Experienced in building RESTful APIs, authentication systems, database design, and deploying full-stack apps on platforms like Vercel and Render.',
   },
   {
     icon: assets.lowcode,
     title: 'UI/UX Design & Implementation',
     description: 'Designing clean, intuitive, and responsive user interfaces that deliver seamless user experiences across devices.',
     link: '',
+    expertise: 'Skilled in Figma for wireframing and prototyping. Implement pixel-perfect, accessible designs using Tailwind CSS and modern React component patterns with a strong focus on mobile responsiveness.',
   },
   {
     icon: assets.uiux,
     title: 'CMS & Low-Code Website Solutions',
     description: 'Quickly launching powerful websites using platforms like WordPress, Shopify, Webflow, and Bubble for content or e-commerce.',
     link: '',
+    expertise: 'Hands-on experience with WordPress, Shopify, and Webflow. Able to rapidly deliver custom-themed, SEO-friendly, and e-commerce-ready sites without sacrificing flexibility or performance.',
   },
   {
     icon: assets.custom,
     title: 'Custom Integrations & Automation',
     description: 'Connecting tools, APIs, and services to streamline workflows and automate processes for improved efficiency.',
     link: '',
+    expertise: 'Experience integrating third-party APIs, payment gateways, and automation tools. Comfortable working with webhooks, cron jobs, and services like Zapier, Make, and custom middleware solutions.',
   },
 ]
 
