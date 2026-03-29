@@ -8,22 +8,23 @@ const FlipCard = ({ icon, title, description, expertise, flipped, onFlip, onUnfl
   return (
     <div
       className="relative w-full h-80 cursor-pointer"
-      style={{ perspective: '1000px' }}
+      style={{ perspective: '1200px', perspectiveOrigin: 'center' }}
     >
       <div
-        className="relative w-full h-full transition-transform duration-700"
+        className="relative w-full h-full"
         style={{
           transformStyle: 'preserve-3d',
           transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+          transition: 'transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1)',
         }}
       >
         {/* Front */}
         <div
           className="absolute inset-0 border border-gray-400 rounded-xl p-6
-            transition-all duration-500 hover:-translate-y-1 hover:shadow-lg
             text-[color:var(--page-fg)]"
           style={{
             backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
             backgroundColor: isDark ? '#1a1a2e' : '#ffffff',
           }}
         >
@@ -45,6 +46,7 @@ const FlipCard = ({ icon, title, description, expertise, flipped, onFlip, onUnfl
             flex flex-col justify-between"
           style={{
             backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
             backgroundColor: isDark ? '#1a1a2e' : '#fcf4ff',
             color: isDark ? '#ffffff' : '#1f2937',
@@ -76,10 +78,8 @@ const Services = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Set initial value
     setIsDark(document.documentElement.classList.contains('dark'));
 
-    // Watch for theme changes
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains('dark'));
     });
