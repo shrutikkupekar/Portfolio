@@ -15,12 +15,17 @@ const Navbar = () => {
 
   // Load saved theme from localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-    }
-  }, []);
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.documentElement.classList.remove("dark");
+    setIsDark(false);
+  } else {
+    // Default to dark mode
+    document.documentElement.classList.add("dark");
+    setIsDark(true);
+    localStorage.setItem("theme", "dark");
+  }
+}, []);
 
   const toggleTheme = () => {
     const html = document.documentElement;
