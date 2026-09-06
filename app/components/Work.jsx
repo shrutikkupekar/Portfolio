@@ -84,18 +84,6 @@ export default function Work() {
                 {project.description}
               </p>
 
-              {/* Highlights */}
-              {project.highlights && (
-                <ul className="flex flex-col gap-1.5 mt-1">
-                  {project.highlights.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-xs font-Outfit text-[color:var(--page-fg)] opacity-65 leading-5">
-                      <span className="mt-0.5 shrink-0" style={{ color: project.accent }}>▸</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
               {/* Tech tags */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {project.tags.map((tag) => (
