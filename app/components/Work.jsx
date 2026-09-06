@@ -6,8 +6,15 @@ const projects = [
   {
     title: 'Skynet Chat',
     description:
-      'A serverless AI-powered chat application with real-time responses. Built on a serverless architecture for seamless scalability and deployed on Vercel.',
-    tags: ['Next.js', 'React', 'AI / LLM', 'Serverless', 'Vercel'],
+      'A fully serverless, AI-powered real-time chat platform with group messaging, OIDC authentication, and AI-assisted features including message summarization, rewriting, and fact-checking — all powered by OpenAI.',
+    highlights: [
+      'Real-time group messaging via AWS API Gateway WebSocket',
+      'Serverless backend with AWS Lambda functions',
+      'User data & groups stored in AWS DynamoDB',
+      'Auth via AWS Cognito (OIDC)',
+      'AI features: summarize, rewrite & fact-check messages (OpenAI)',
+    ],
+    tags: ['Next.js', 'React', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'AWS Cognito', 'OpenAI', 'WebSocket', 'Tailwind CSS', 'Vercel'],
     live: 'https://skynet-ai-chat-app.vercel.app/',
     github: '',
     from: '#0f2027',
@@ -73,12 +80,24 @@ export default function Work() {
               <h3 className="font-Outfit font-bold text-xl text-[color:var(--page-fg)]">
                 {project.title}
               </h3>
-              <p className="font-Outfit text-sm leading-6 text-[color:var(--page-fg)] opacity-70 flex-1">
+              <p className="font-Outfit text-sm leading-6 text-[color:var(--page-fg)] opacity-70">
                 {project.description}
               </p>
 
+              {/* Highlights */}
+              {project.highlights && (
+                <ul className="flex flex-col gap-1.5 mt-1">
+                  {project.highlights.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-xs font-Outfit text-[color:var(--page-fg)] opacity-65 leading-5">
+                      <span className="mt-0.5 shrink-0" style={{ color: project.accent }}>▸</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {/* Tech tags */}
-              <div className="flex flex-wrap gap-2 mt-1">
+              <div className="flex flex-wrap gap-2 mt-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
