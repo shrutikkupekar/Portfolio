@@ -73,9 +73,9 @@ const Navbar = () => {
   backdrop-blur-md shadow-md
   ${isScroll
             ? isDark
-              ? 'bg-[#120022]/85 text-white'
+              ? 'bg-[#212121]/85 text-[#dedede]'
               : 'bg-white/80 text-gray-900'
-            : 'bg-transparent text-gray-900 dark:text-white'
+            : 'bg-transparent text-gray-900 dark:text-[#dedede]'
           }`}
       >
 
@@ -97,13 +97,14 @@ const Navbar = () => {
              bg-[color:var(--page-bg)]/80 text-[color:var(--page-fg)]
              shadow-sm backdrop-blur-md transition-colors duration-300"
         >
-          <li><a className="font-ovo text-[color:var(--page-fg)] hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#top">Home</a></li>
-          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#about">About me</a></li>
-          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#experience">Experience</a></li>
-          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#services">Services</a></li>
-          {/* <li><a className="font-ovo hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#work">My work</a></li> */}
-          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#education">Education</a></li>
-          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-purple-400 transition-colors duration-200" href="#contact">Contact me</a></li>
+          <li><a className="font-ovo text-[color:var(--page-fg)] hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#top">Home</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#about">About me</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#stack">Stack</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#experience">Experience</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#services">Services</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#work">My work</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#education">Education</a></li>
+          <li><a className="font-ovo hover:text-gray-500 dark:hover:text-[#00f050] transition-colors duration-200" href="#contact">Contact me</a></li>
         </ul>
 
 
@@ -161,8 +162,8 @@ backdrop-blur-md transition-all duration-300 hover:opacity-80"
           className="
     nav-ul block md:hidden ml-3 flex-col gap-4 py-20 px-10
     fixed right-0 top-0 bottom-0 w-64 z-[100] h-screen
-    bg-white dark:bg-[#120022]
-    text-black dark:text-white
+    bg-white dark:bg-[#212121]
+    text-black dark:text-[#dedede]
     translate-x-64 transition-transform duration-500
     shadow-2xl
   "
@@ -174,7 +175,7 @@ backdrop-blur-md transition-all duration-300 hover:opacity-80"
     fixed right-0 top-0 bottom-0 w-64 z-[100] h-screen
     translate-x-64 transition-transform duration-500
     shadow-2xl
-    ${isDark ? 'bg-[#120022] text-white' : 'bg-white text-gray-900'}
+    ${isDark ? 'bg-[#212121] text-[#dedede]' : 'bg-white text-gray-900'}
   `}
         >
           <div className="absolute right-6 top-6" onClick={closeMenu}>
@@ -210,9 +211,29 @@ backdrop-blur-md transition-all duration-300 hover:opacity-80"
             <a
               className="font-ovo block py-2 hover:opacity-70 transition"
               onClick={closeMenu}
+              href="#stack"
+            >
+              Stack
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
               href="#experience"
             >
               Experience
+            </a>
+          </li>
+
+          <li>
+            <a
+              className="font-ovo block py-2 hover:opacity-70 transition"
+              onClick={closeMenu}
+              href="#work"
+            >
+              My work
             </a>
           </li>
 

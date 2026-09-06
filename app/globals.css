@@ -10,8 +10,8 @@
 }
 
 html.dark {
-  --page-bg: #11001f;   /* your darktheme */
-  --page-fg: #ffffff;   /* dark text */
+  --page-bg: #212121;
+  --page-fg: #dedede;
 }
 nav {
   will-change: background-color, color;

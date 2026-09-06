@@ -25,7 +25,7 @@ const FlipCard = ({ icon, title, description, expertise, flipped, onFlip, onUnfl
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
-            backgroundColor: isDark ? '#1a1a2e' : '#ffffff',
+            backgroundColor: isDark ? '#303030' : '#ffffff',
           }}
         >
           <Image src={icon} alt={title} className="w-10" />
@@ -48,8 +48,8 @@ const FlipCard = ({ icon, title, description, expertise, flipped, onFlip, onUnfl
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
-            backgroundColor: isDark ? '#1a1a2e' : '#fcf4ff',
-            color: isDark ? '#ffffff' : '#1f2937',
+            backgroundColor: isDark ? '#303030' : '#fcf4ff',
+            color: isDark ? '#dedede' : '#1f2937',
           }}
         >
           <div>

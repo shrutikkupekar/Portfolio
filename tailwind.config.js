@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       colors:{
         lighthover:'#fcf4ff',
-        darkhover:'#2a004a',
-        darktheme:'#11001f'
+        darkhover:'#303030',
+        darktheme:'#212121'
       },
       fontFamily:{
         Outfit:["outfit", "sans-serif"],

@@ -39,7 +39,7 @@ const Header = () => {
     <div
       className="relative w-full px-4 pt-10 max-w-5xl mx-auto min-h-screen flex flex-col 
                  items-center justify-center text-center gap-6 transition-colors duration-300"
-      style={{ color: isDark ? 'white' : 'black' }}
+      style={{ color: isDark ? '#dedede' : 'black' }}
     >
       {/* -------- Line 1 -------- */}
       <h3 className="text-lg sm:text-xl md:text-2xl font-Ovo">
@@ -95,8 +95,7 @@ const Header = () => {
   text-700 border border-[0.5px] border-700
   rounded-full py-3 px-10
   hover:bg-[#fcf4ff]
-  dark:hover:bg-[#fcf4ff]
-  dark:hover:text-black
+  dark:hover:bg-[#303030]
   hover:shadow-lg hover:shadow-black
   hover:-translate-y-1 duration-500"
 
@@ -120,8 +119,7 @@ const Header = () => {
   text-700 border border-[0.5px] border-700
   rounded-full py-3 px-10
   hover:bg-[#fcf4ff]
-  dark:hover:bg-[#fcf4ff]
-  dark:hover:text-black
+  dark:hover:bg-[#303030]
   hover:shadow-lg hover:shadow-black
   hover:-translate-y-1 duration-500"
 

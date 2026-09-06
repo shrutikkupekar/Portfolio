@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Experience from "./components/Experience"
 import Education from "./components/Education";
 import React, { useEffect, useState } from "react";
+import FallingDots from "./components/FallingDots";
+import TechStack from "./components/TechStack";
 export default function Home() {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -31,12 +33,14 @@ export default function Home() {
   }, [isDarkMode])
   return (
     <>
+      {isDarkMode && <FallingDots />}
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Header isDarkMode={isDarkMode} />
       <About isDarkMode={isDarkMode} />
+      <TechStack />
       <Experience isDarkMode={isDarkMode} />
       <Services isDarkMode={isDarkMode} />
-      {/* <Work isDarkMode={isDarkMode} /> */}
+      <Work isDarkMode={isDarkMode} />
       <Education isDarkMode={isDarkMode} />
       <Contact isDarkMode={isDarkMode} />
       <Footer isDarkMode={isDarkMode} />

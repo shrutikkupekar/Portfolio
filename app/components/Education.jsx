@@ -13,7 +13,7 @@ const Education = () => {
       <div className="grid md:grid-cols-2 gap-8">
 
         {/* MS */}
-        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] text-[color:var(--page-fg)] dark:hover:text-black">
+        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] dark:hover:bg-[#303030] text-[color:var(--page-fg)]">
           <h3 className="text-xl font-semibold mb-2">
             M.S. in Computer Science
           </h3>
@@ -29,7 +29,7 @@ const Education = () => {
         </div>
 
         {/* BE */}
-        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff]  text-[color:var(--page-fg)] dark:hover:text-black">
+        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] dark:hover:bg-[#303030] text-[color:var(--page-fg)]">
           <h3 className="text-xl font-semibold mb-2">
             B.E. in Computer Engineering
           </h3>

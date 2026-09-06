@@ -16,7 +16,7 @@ const Experience = () => {
       <div className="grid md:grid-cols-2 gap-8">
 
         {/* SAAA Consultants */}
-        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] text-[color:var(--page-fg)] dark:hover:text-black">
+        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] dark:hover:bg-[#303030] text-[color:var(--page-fg)]">
           <h3 className="text-xl font-semibold mb-2">
             Software Developer — SAAA Consultants
           </h3>
@@ -34,7 +34,7 @@ const Experience = () => {
         </div>
 
         {/* Fineappl */}
-        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] text-[color:var(--page-fg)] dark:hover:text-black">
+        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] dark:hover:bg-[#303030] text-[color:var(--page-fg)]">
           <h3 className="text-xl font-semibold mb-2">
             Software Developer — Fineappl
           </h3>
@@ -51,7 +51,7 @@ const Experience = () => {
         </div>
 
         {/* Cyberrace */}
-        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] text-[color:var(--page-fg)] dark:hover:text-black">
+        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] dark:hover:bg-[#303030] text-[color:var(--page-fg)]">
           <h3 className="text-xl font-semibold mb-2">
             Python Developer Intern — Cyberrace Infovision
           </h3>
@@ -67,7 +67,7 @@ const Experience = () => {
         </div>
 
         {/* Harrisburg Internship */}
-        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] text-[color:var(--page-fg)] dark:hover:text-black">
+        <div className="border border-gray-400 rounded-xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:bg-[#fcf4ff] dark:hover:bg-[#303030] text-[color:var(--page-fg)]">
           <h3 className="text-xl font-semibold mb-2">
             Internship Program — Harrisburg University
           </h3>

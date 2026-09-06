@@ -24,8 +24,8 @@ const About = () => {
                 key={index}
                 className="flex items-start gap-4 border border-gray-400 rounded-xl p-6 cursor-pointer
              transition-all duration-500 hover:-translate-y-1 hover:shadow-lg
-             hover:bg-[#fcf4ff]
-             text-[color:var(--page-fg)] dark:hover:text-black"
+             hover:bg-[#fcf4ff] dark:hover:bg-[#303030]
+             text-[color:var(--page-fg)]"
               >
                 <Image
                   src={icon}
