@@ -112,7 +112,6 @@ const Header = () => {
         {/* Resume Button */}
         <a
           href="./Shrutik_Kupekar_Resume.pdf"
-          download
           target="_blank"
           rel="noopener noreferrer"
           className="w-max flex items-center justify-center gap-2
