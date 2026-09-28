@@ -103,7 +103,7 @@ export default function Work() {
               </div>
 
               {/* Links */}
-              <div className="flex gap-3 mt-3">
+              <div className="flex gap-3 mt-auto pt-4">
                 {project.live && (
                   <a
                     href={project.live}
