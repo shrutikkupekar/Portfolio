@@ -7,13 +7,6 @@ const projects = [
     title: 'Skynet Chat',
     description:
       'A fully serverless, AI-powered real-time chat platform with group messaging, OIDC authentication, and AI-assisted features including message summarization, rewriting, and fact-checking — all powered by OpenAI.',
-    highlights: [
-      'Real-time group messaging via AWS API Gateway WebSocket',
-      'Serverless backend with AWS Lambda functions',
-      'User data & groups stored in AWS DynamoDB',
-      'Auth via AWS Cognito (OIDC)',
-      'AI features: summarize, rewrite & fact-check messages (OpenAI)',
-    ],
     tags: ['Next.js', 'React', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'AWS Cognito', 'OpenAI', 'WebSocket', 'Tailwind CSS', 'Vercel'],
     live: 'https://skynet-ai-chat-app.vercel.app/',
     github: '',
@@ -21,6 +14,18 @@ const projects = [
     to: '#203a43',
     accent: '#00bcf0',
     icon: '🤖',
+  },
+  {
+    title: 'JobQuest',
+    description:
+      'A full-stack PWA for tracking job applications with JWT-secured per-user data, a gamification system with XP points and streaks to stay motivated, and real-time stats including response rate, weekly goals, and application counts. Installs on iOS and Android like a native app.',
+    tags: ['React', 'Vite', 'Express.js', 'SQLite', 'JWT', 'PWA', 'Railway', 'Vercel'],
+    live: 'https://job-quest-mauve.vercel.app/login',
+    github: '',
+    from: '#1a1a2e',
+    to: '#16213e',
+    accent: '#c80082',
+    icon: '🎯',
   },
 ];
 
