@@ -43,7 +43,7 @@ export default function Work() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="group flex flex-col rounded-2xl overflow-hidden border border-gray-700/50
+            className="group flex flex-col h-full rounded-2xl overflow-hidden border border-gray-700/50
                        hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30
                        transition-all duration-300"
             style={{ background: '#1a1a1a' }}
