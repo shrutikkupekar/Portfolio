@@ -1,38 +1,21 @@
+import { Inter, Syne, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { Outfit, Ovo } from 'next/font/google';
+import GrainOverlay from './components/GrainOverlay';
 
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
-const ovo = Ovo({ subsets: ['latin'], weight: '400', variable: '--font-ovo' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const syne = Syne({ subsets: ['latin'], variable: '--font-syne' });
+const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' });
 
 export const metadata = {
-  title: 'Shrutik Kupekar | Portfolio',
-  description: 'Fullstack Developer Portfolio built with Next.js and Tailwind CSS',
+  title: 'Shrutik Kupekar',
+  description: 'Fullstack Software Engineer — React, Node.js, AWS',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (theme === 'light') {
-                    document.documentElement.classList.remove('dark');
-                  } else {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body
-        className={`${outfit.variable} ${ovo.variable} antialiased overflow-x-hidden scroll-smooth`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${syne.variable} ${jetbrains.variable} font-sans antialiased`}>
+        <GrainOverlay />
         {children}
       </body>
     </html>

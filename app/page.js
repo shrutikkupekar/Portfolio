@@ -1,50 +1,37 @@
-'use client'
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import About from "./components/About";
-import Services from "./components/Services";
-import Work from "./components/Work";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Experience from "./components/Experience"
-import Education from "./components/Education";
-import React, { useEffect, useState } from "react";
-import FallingDots from "./components/FallingDots";
-import TechStack from "./components/TechStack";
+'use client';
+import NavHeader from './components/NavHeader';
+import HeroSection from './components/sections/HeroSection';
+import AboutSection from './components/sections/AboutSection';
+import ExperienceSection from './components/sections/ExperienceSection';
+import ProjectsSection from './components/sections/ProjectsSection';
+import SkillsSection from './components/sections/SkillsSection';
+import EducationSection from './components/sections/EducationSection';
+import ContactSection from './components/sections/ContactSection';
+
 export default function Home() {
-
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  useEffect(() => {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scehem:dark)').matches)) {
-      setIsDarkMode(true)
-    } else {
-      setIsDarkMode(false)
-    }
-  }, [])
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = '';
-    }
-
-  }, [isDarkMode])
   return (
     <>
-      {isDarkMode && <FallingDots />}
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <Header isDarkMode={isDarkMode} />
-      <About isDarkMode={isDarkMode} />
-      <TechStack />
-      <Experience isDarkMode={isDarkMode} />
-      <Services isDarkMode={isDarkMode} />
-      <Work isDarkMode={isDarkMode} />
-      <Education isDarkMode={isDarkMode} />
-      <Contact isDarkMode={isDarkMode} />
-      <Footer isDarkMode={isDarkMode} />
+      <NavHeader />
+      <main style={{
+        maxWidth: 1280,
+        margin: '0 auto',
+        paddingLeft: 'clamp(24px, 4vw, 64px)',
+        paddingRight: 'clamp(24px, 4vw, 64px)',
+      }}>
+        <HeroSection />
+        <hr className="section-divider" />
+        <ProjectsSection />
+        <hr className="section-divider" />
+        <AboutSection />
+        <hr className="section-divider" />
+        <ExperienceSection />
+        <hr className="section-divider" />
+        <SkillsSection />
+        <hr className="section-divider" />
+        <EducationSection />
+        <hr className="section-divider" />
+        <ContactSection />
+      </main>
     </>
   );
 }
-

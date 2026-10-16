@@ -1,56 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import "tailwindcss";
 
-:root {
-  --page-bg: #ffffff;   /* light */
-  --page-fg: #000000;   /* light text */
+@theme {
+  --font-family-sans: var(--font-inter), system-ui, sans-serif;
+  --font-family-display: var(--font-syne), system-ui, sans-serif;
+  --font-family-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
 }
 
-html.dark {
-  --page-bg: #212121;
-  --page-fg: #dedede;
-}
-nav {
-  will-change: background-color, color;
-  transition: none !important;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Apply globally so no other bg overrides matter */
 html, body {
-  background-color: var(--page-bg) !important;
-  color: var(--page-fg);
+  background-color: #131008;
+  color: #e8dfc8;
   min-height: 100%;
-  transition: background-color 250ms ease, color 250ms ease;
+  overflow-x: hidden;
 }
 
-.svg-theme-stroke {
-  stroke: var(--page-fg) !important;
+
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0) }
+  10%  { transform: translate(-2%, -3%) }
+  20%  { transform: translate(3%, 1%) }
+  30%  { transform: translate(-1%, 4%) }
+  40%  { transform: translate(4%, -2%) }
+  50%  { transform: translate(-3%, 3%) }
+  60%  { transform: translate(2%, -4%) }
+  70%  { transform: translate(-4%, 1%) }
+  80%  { transform: translate(1%, 3%) }
+  90%  { transform: translate(3%, -1%) }
+  100% { transform: translate(-2%, 2%) }
 }
 
-/* .nav-ul{
-  font-family: Ovo !important;
-} */
-
-/* 🌈 Morphing blob animation */
-@keyframes amoebaMotion {
-  0%, 100% {
-    border-radius: 55% 45% 60% 40% / 60% 45% 55% 40%;
-  }
-  25% {
-    border-radius: 60% 40% 50% 50% / 55% 60% 45% 45%;
-  }
-  50% {
-    border-radius: 45% 55% 65% 35% / 50% 55% 60% 40%;
-  }
-  75% {
-    border-radius: 50% 50% 40% 60% / 60% 50% 40% 50%;
-  }
+.grain-overlay {
+  position: fixed;
+  top: -200%;
+  left: -200%;
+  width: 400%;
+  height: 400%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 9998;
+  animation: grain-shift 0.5s steps(1) infinite;
 }
 
-.animate-amoebaMotion {
-  animation: amoebaMotion 10s ease-in-out infinite;
+@media (max-width: 768px) {
+  .grain-overlay { opacity: 0.03; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .grain-overlay { animation: none; opacity: 0; }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #131008; }
+::-webkit-scrollbar-thumb { background: #2a241a; border-radius: 2px; }
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #2a241a;
+  margin: 0;
+}
