@@ -61,7 +61,7 @@ export default function HeroSection() {
               margin: '16px auto 0', textAlign: 'center',
             }}
           >
-            I turn &apos;can we build this?&apos; into &apos;it&apos;s live.&apos;
+            I turn can-we-build-this into it&apos;s live.
           </motion.p>
         </div>
       </div>
@@ -72,15 +72,16 @@ export default function HeroSection() {
         transition={{ duration: 0.8, delay: 0.65 }}
         style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 24 }}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <span style={{ ...mono, color: '#6b6355' }}>📍 Lancaster, CA</span>
+          <span style={{ ...mono, color: '#3a3228' }}>·</span>
           <a
             href="mailto:kupekarshrutik16@gmail.com"
             style={{ ...mono, color: '#6b6355', textDecoration: 'none', transition: 'color 0.2s' }}
             onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
             onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
           >
-            ✉ kupekarshrutik16@gmail.com
+            kupekarshrutik16@gmail.com
           </a>
         </div>
 
