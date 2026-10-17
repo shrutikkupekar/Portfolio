@@ -71,7 +71,6 @@ export default function AboutSection() {
             {[
               { value: '2+', label: 'Years' },
               { value: '20+', label: 'Projects' },
-              { value: '2', label: 'Startups' },
             ].map(s => (
               <div key={s.label}>
                 <p style={{
