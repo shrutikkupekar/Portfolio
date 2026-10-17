@@ -20,9 +20,9 @@ export default function Home() {
       }}>
         <HeroSection />
         <ProjectsSection />
-        <AboutSection />
         <ExperienceSection />
         <SkillsSection />
+        <AboutSection />
         <EducationSection />
         <ContactSection />
       </main>

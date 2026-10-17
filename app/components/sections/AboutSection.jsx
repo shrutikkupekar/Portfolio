@@ -63,7 +63,7 @@ export default function AboutSection() {
             fontFamily: 'var(--font-inter, system-ui)',
             fontSize: 16, color: '#6b6355', lineHeight: 1.9, marginBottom: 48,
           }}>
-            Currently pursuing my M.S. in Computer Science at CSUF (GPA 3.76). I thrive in environments
+            Completed my M.S. in Computer Science at CSUF (GPA 3.76). I thrive in environments
             where I wear multiple hats: architecture, frontend, backend, client meetings, and mentoring.
           </p>
 
