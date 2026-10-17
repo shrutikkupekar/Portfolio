@@ -73,7 +73,6 @@ export default function EducationSection() {
           </motion.div>
         ))}
       </div>
-      <div style={{ borderTop: '1px solid #2a241a', marginTop: 64 }} />
     </section>
   );
 }

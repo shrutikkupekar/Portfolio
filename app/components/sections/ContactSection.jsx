@@ -124,10 +124,8 @@ export default function ContactSection() {
         </div>
       </motion.div>
 
-      <div style={{ borderTop: '1px solid #2a241a', marginTop: 64 }} />
-
       {/* Footer */}
-      <div style={{ paddingTop: 28 }}>
+      <div style={{ marginTop: 64, paddingTop: 28 }}>
         <p style={{
           fontFamily: 'var(--font-jetbrains, monospace)',
           fontSize: 11, color: '#3a3228',

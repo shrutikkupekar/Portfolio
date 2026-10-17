@@ -119,7 +119,6 @@ export default function ExperienceSection() {
             </ul>
           </motion.div>
         ))}
-        <div style={{ borderTop: '1px solid #2a241a' }} />
       </div>
     </section>
   );

@@ -159,7 +159,6 @@ export default function ProjectsSection() {
             </div>
           </motion.div>
         ))}
-        <div style={{ borderTop: '1px solid #2a241a' }} />
       </div>
     </section>
   );
