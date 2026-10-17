@@ -67,19 +67,14 @@ export default function AboutSection() {
             where I wear multiple hats: architecture, frontend, backend, client meetings, and mentoring.
           </p>
 
-          <div style={{ display: 'flex', gap: 48 }}>
-            {[
-              { value: '2+', label: 'Years' },
-              { value: '20+', label: 'Projects' },
-            ].map(s => (
-              <div key={s.label}>
-                <p style={{
-                  fontFamily: 'var(--font-syne, system-ui)',
-                  fontSize: 36, fontWeight: 700, color: '#e8dfc8',
-                  letterSpacing: '-0.02em', lineHeight: 1,
-                }}>{s.value}</p>
-                <p style={{ ...labelStyle, fontSize: 10, marginTop: 8 }}>{s.label}</p>
-              </div>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            {['Full-Stack', 'Distributed Systems', 'Cloud & Infra', 'React · Node.js', 'Open to Work'].map(tag => (
+              <span key={tag} style={{
+                fontFamily: 'var(--font-jetbrains, monospace)',
+                fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
+                color: '#6b6355', border: '1px solid #2a241a',
+                borderRadius: 2, padding: '6px 12px',
+              }}>{tag}</span>
             ))}
           </div>
         </motion.div>
