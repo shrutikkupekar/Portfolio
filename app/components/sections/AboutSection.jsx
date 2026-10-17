@@ -3,23 +3,37 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const fadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
   transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
-const label = {
+const labelStyle = {
   fontFamily: 'var(--font-jetbrains, monospace)',
   fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6b6355',
+};
+
+const bigHeading = {
+  fontFamily: 'var(--font-syne, system-ui)',
+  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontWeight: 800,
+  color: '#e8dfc8',
+  lineHeight: 0.95,
+  letterSpacing: '-0.03em',
+  margin: 0,
+  marginTop: 12,
 };
 
 export default function AboutSection() {
   const [photoError, setPhotoError] = useState(false);
 
   return (
-    <section id="about" style={{ padding: '100px 0' }}>
-      <motion.p {...fadeUp} style={{ ...label, marginBottom: 64 }}>A B O U T</motion.p>
+    <section id="about" style={{ padding: '120px 0' }}>
+      <motion.div {...fadeUp} style={{ marginBottom: 72 }}>
+        <p style={labelStyle}>A B O U T</p>
+        <h2 style={bigHeading}>Who I Am.</h2>
+      </motion.div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 72, alignItems: 'start' }}>
         {/* Left — text */}
@@ -27,14 +41,14 @@ export default function AboutSection() {
           {...fadeUp}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h2 style={{
+          <h3 style={{
             fontFamily: 'var(--font-syne, system-ui)',
-            fontSize: 'clamp(36px, 5vw, 60px)',
+            fontSize: 'clamp(24px, 2.5vw, 36px)',
             fontWeight: 700, letterSpacing: '-0.02em',
-            color: '#e8dfc8', lineHeight: 1.15, marginBottom: 36,
+            color: '#e8dfc8', lineHeight: 1.2, marginBottom: 36,
           }}>
             Building reliable software<br />at every layer of the stack.
-          </h2>
+          </h3>
 
           <p style={{
             fontFamily: 'var(--font-inter, system-ui)',
@@ -49,7 +63,7 @@ export default function AboutSection() {
             fontFamily: 'var(--font-inter, system-ui)',
             fontSize: 16, color: '#6b6355', lineHeight: 1.9, marginBottom: 48,
           }}>
-            Currently pursuing my M.S. in Computer Science at CSUF (GPA 3.7). I thrive in environments
+            Currently pursuing my M.S. in Computer Science at CSUF (GPA 3.76). I thrive in environments
             where I wear multiple hats: architecture, frontend, backend, client meetings, and mentoring.
           </p>
 
@@ -65,7 +79,7 @@ export default function AboutSection() {
                   fontSize: 36, fontWeight: 700, color: '#e8dfc8',
                   letterSpacing: '-0.02em', lineHeight: 1,
                 }}>{s.value}</p>
-                <p style={{ ...label, fontSize: 10, marginTop: 8 }}>{s.label}</p>
+                <p style={{ ...labelStyle, fontSize: 10, marginTop: 8 }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -75,7 +89,6 @@ export default function AboutSection() {
         <motion.div
           {...fadeUp}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ display: 'flex', flexDirection: 'column', gap: 14 }}
         >
           <div style={{
             width: '100%', maxWidth: 280, height: 380,

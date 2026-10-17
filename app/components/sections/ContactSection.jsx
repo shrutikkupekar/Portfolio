@@ -13,30 +13,42 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-const label = {
+const labelStyle = {
   fontFamily: 'var(--font-jetbrains, monospace)',
   fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6b6355',
 };
 
+const bigHeading = {
+  fontFamily: 'var(--font-syne, system-ui)',
+  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontWeight: 800,
+  color: '#e8dfc8',
+  lineHeight: 0.95,
+  letterSpacing: '-0.03em',
+  margin: 0,
+  marginTop: 12,
+};
+
+const fadeUp = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+};
+
 export default function ContactSection() {
   return (
-    <section id="contact" style={{ padding: '100px 0 80px' }}>
+    <section id="contact" style={{ padding: '120px 0 80px' }}>
+      <motion.div {...fadeUp} style={{ marginBottom: 56 }}>
+        <p style={labelStyle}>C O N N E C T</p>
+        <h2 style={bigHeading}>Let's Talk.</h2>
+      </motion.div>
+
       <motion.div
-        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <p style={{ ...label, marginBottom: 48 }}>C O N N E C T</p>
-
-        <h2 style={{
-          fontFamily: 'var(--font-syne, system-ui)',
-          fontSize: 'clamp(48px, 7vw, 80px)',
-          fontWeight: 700, letterSpacing: '-0.03em',
-          color: '#e8dfc8', lineHeight: 1.05, marginBottom: 24,
-        }}>
-          Let's work<br />together.
-        </h2>
-
         <p style={{
           fontFamily: 'var(--font-inter, system-ui)',
           fontSize: 18, color: '#6b6355', marginBottom: 40, maxWidth: 480,
@@ -59,73 +71,44 @@ export default function ContactSection() {
           kupekarshrutik16@gmail.com
         </a>
 
-        <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap', marginBottom: 48 }}>
           {[
-            {
-              href: 'https://github.com/shrutikkupekar',
-              Icon: GitHubIcon,
-              label: 'GitHub ↗',
-              sub: 'github.com/shrutikkupekar',
-            },
-            {
-              href: 'https://www.linkedin.com/in/shrutik-kupekar/',
-              Icon: LinkedInIcon,
-              label: 'LinkedIn ↗',
-              sub: 'linkedin.com/in/shrutik-kupekar',
-            },
-          ].map(({ href, Icon, label: lbl, sub }) => (
-            <a
-              key={lbl}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: 'none', color: '#6b6355', transition: 'color 0.2s',
-              }}
+            { href: 'https://github.com/shrutikkupekar', Icon: GitHubIcon, label: 'GitHub ↗', sub: 'github.com/shrutikkupekar' },
+            { href: 'https://www.linkedin.com/in/shrutik-kupekar/', Icon: LinkedInIcon, label: 'LinkedIn ↗', sub: 'linkedin.com/in/shrutik-kupekar' },
+          ].map(({ href, Icon, label, sub }) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+              style={{ textDecoration: 'none', color: '#6b6355', transition: 'color 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
               onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
                 <Icon />
-                <span style={{
-                  fontFamily: 'var(--font-syne, system-ui)',
-                  fontSize: 20, fontWeight: 700,
-                }}>
-                  {lbl}
-                </span>
+                <span style={{ fontFamily: 'var(--font-syne, system-ui)', fontSize: 20, fontWeight: 700 }}>{label}</span>
               </div>
-              <p style={{
-                fontFamily: 'var(--font-jetbrains, monospace)',
-                fontSize: 12, letterSpacing: '0.05em',
-              }}>
-                {sub}
-              </p>
+              <p style={{ fontFamily: 'var(--font-jetbrains, monospace)', fontSize: 12, letterSpacing: '0.05em' }}>{sub}</p>
             </a>
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: 24, marginTop: 48, flexWrap: 'wrap' }}>
-          <a
-            href="/Shrutik_Kupekar_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: 'var(--font-jetbrains, monospace)',
-              fontSize: 12, color: '#6b6355',
-              textDecoration: 'underline', textUnderlineOffset: 3,
-              letterSpacing: '0.1em', textTransform: 'uppercase',
-              transition: 'color 0.2s',
-            }}
-            onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
-            onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
-          >
-            Download Resume ↗
-          </a>
-        </div>
+        <a
+          href="/Shrutik_Kupekar_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: 'var(--font-jetbrains, monospace)',
+            fontSize: 12, color: '#6b6355',
+            textDecoration: 'underline', textUnderlineOffset: 3,
+            letterSpacing: '0.1em', textTransform: 'uppercase',
+            transition: 'color 0.2s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
+          onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
+        >
+          Download Resume ↗
+        </a>
       </motion.div>
 
-      {/* Footer */}
-      <div style={{ marginTop: 64, paddingTop: 28 }}>
+      <div style={{ marginTop: 80, paddingTop: 28 }}>
         <p style={{
           fontFamily: 'var(--font-jetbrains, monospace)',
           fontSize: 11, color: '#3a3228',

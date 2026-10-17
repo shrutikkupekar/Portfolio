@@ -7,7 +7,6 @@ const PROJECTS = [
     num: '01',
     name: 'Serverless AI Chat Application',
     stack: 'AWS · OpenAI · Next.js',
-    year: '2024',
     desc: 'Serverless chat with AI-powered summarize, rewrite, and fact-check. Persistent state in DynamoDB.',
     live: 'https://skynet-ai-chat-app.vercel.app/',
     github: 'https://github.com/shrutikkupekar',
@@ -16,7 +15,6 @@ const PROJECTS = [
     num: '02',
     name: 'AI News Intelligence Platform',
     stack: 'Kafka · FastAPI · pgvector',
-    year: '2024',
     desc: 'Distributed article ingestion with semantic dedup, Kafka pipeline, Redis cache, and RAG-based Q&A.',
     live: null,
     github: 'https://github.com/shrutikkupekar',
@@ -25,37 +23,55 @@ const PROJECTS = [
     num: '03',
     name: 'Job Quest',
     stack: 'React · Vite · Node.js · Express · SQLite · JWT · PWA',
-    year: '2025',
     desc: 'Job application tracker with JWT auth, custom Sand/Espresso themes, and a PWA-ready frontend backed by an Express + SQLite REST API.',
     live: 'https://job-quest-mauve.vercel.app/login',
     github: 'https://github.com/shrutikkupekar',
   },
 ];
 
-const label = {
+const labelStyle = {
   fontFamily: 'var(--font-jetbrains, monospace)',
   fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6b6355',
+};
+
+const bigHeading = {
+  fontFamily: 'var(--font-syne, system-ui)',
+  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontWeight: 800,
+  color: '#e8dfc8',
+  lineHeight: 0.95,
+  letterSpacing: '-0.03em',
+  margin: 0,
+  marginTop: 12,
+};
+
+const fadeUp = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
 export default function ProjectsSection() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section id="work" style={{ padding: '100px 0' }}>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        style={{ marginBottom: 56 }}
-      >
-        <p style={label}>W O R K</p>
-        <p style={{
-          fontFamily: 'var(--font-inter, system-ui)',
-          fontSize: 18, color: '#6b6355', marginTop: 16,
-        }}>
-          Selected projects and things I've built.
-        </p>
+    <section id="work" style={{ padding: '120px 0' }}>
+      <motion.div {...fadeUp} style={{ marginBottom: 64 }}>
+        <p style={labelStyle}>W O R K</p>
+        <h2 style={bigHeading}>Things I've Built.</h2>
       </motion.div>
+
+      <motion.p
+        {...fadeUp}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{
+          fontFamily: 'var(--font-inter, system-ui)',
+          fontSize: 18, color: '#6b6355', marginBottom: 56,
+        }}
+      >
+        Selected projects and things I've built.
+      </motion.p>
 
       <div>
         {PROJECTS.map((p, i) => (
@@ -68,14 +84,9 @@ export default function ProjectsSection() {
             whileHover={{ x: 8 }}
             onHoverStart={() => setHovered(i)}
             onHoverEnd={() => setHovered(null)}
-            style={{
-              borderTop: '1px solid #2a241a',
-              padding: '36px 0',
-              transition: 'color 0.2s',
-            }}
+            style={{ padding: '36px 0' }}
           >
             <div style={{ display: 'flex', gap: 28, alignItems: 'flex-start' }}>
-              {/* Number */}
               <span style={{
                 fontFamily: 'var(--font-syne, system-ui)',
                 fontSize: 24, fontWeight: 700,
@@ -86,9 +97,7 @@ export default function ProjectsSection() {
                 {p.num}
               </span>
 
-              {/* Content */}
               <div style={{ flex: 1 }}>
-                {/* Name row */}
                 <div style={{ marginBottom: 10 }}>
                   <h3 style={{
                     fontFamily: 'var(--font-syne, system-ui)',
@@ -101,7 +110,6 @@ export default function ProjectsSection() {
                   </h3>
                 </div>
 
-                {/* Stack */}
                 <p style={{
                   fontFamily: 'var(--font-jetbrains, monospace)',
                   fontSize: 12, color: '#6b6355',
@@ -110,7 +118,6 @@ export default function ProjectsSection() {
                   {p.stack}
                 </p>
 
-                {/* Description */}
                 <p style={{
                   fontFamily: 'var(--font-inter, system-ui)',
                   fontSize: 14, color: '#6b6355', lineHeight: 1.8, marginBottom: 18,
@@ -118,19 +125,10 @@ export default function ProjectsSection() {
                   {p.desc}
                 </p>
 
-                {/* Links */}
                 <div style={{ display: 'flex', gap: 20 }}>
                   {p.github && (
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontFamily: 'var(--font-inter, system-ui)',
-                        fontSize: 13, color: '#6b6355',
-                        textDecoration: 'underline', textUnderlineOffset: 3,
-                        transition: 'color 0.2s',
-                      }}
+                    <a href={p.github} target="_blank" rel="noopener noreferrer"
+                      style={{ fontFamily: 'var(--font-inter, system-ui)', fontSize: 13, color: '#6b6355', textDecoration: 'underline', textUnderlineOffset: 3, transition: 'color 0.2s' }}
                       onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
                       onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
                     >
@@ -138,16 +136,8 @@ export default function ProjectsSection() {
                     </a>
                   )}
                   {p.live && (
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontFamily: 'var(--font-inter, system-ui)',
-                        fontSize: 13, color: '#6b6355',
-                        textDecoration: 'underline', textUnderlineOffset: 3,
-                        transition: 'color 0.2s',
-                      }}
+                    <a href={p.live} target="_blank" rel="noopener noreferrer"
+                      style={{ fontFamily: 'var(--font-inter, system-ui)', fontSize: 13, color: '#6b6355', textDecoration: 'underline', textUnderlineOffset: 3, transition: 'color 0.2s' }}
                       onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
                       onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
                     >

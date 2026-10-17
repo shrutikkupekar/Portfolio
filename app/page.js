@@ -10,7 +10,7 @@ import ContactSection from './components/sections/ContactSection';
 
 export default function Home() {
   return (
-    <>
+    <div style={{ position: 'relative', zIndex: 1 }}>
       <NavHeader />
       <main style={{
         maxWidth: 1280,
@@ -19,19 +19,13 @@ export default function Home() {
         paddingRight: 'clamp(24px, 4vw, 64px)',
       }}>
         <HeroSection />
-        <hr className="section-divider" />
         <ProjectsSection />
-        <hr className="section-divider" />
         <AboutSection />
-        <hr className="section-divider" />
         <ExperienceSection />
-        <hr className="section-divider" />
         <SkillsSection />
-        <hr className="section-divider" />
         <EducationSection />
-        <hr className="section-divider" />
         <ContactSection />
       </main>
-    </>
+    </div>
   );
 }

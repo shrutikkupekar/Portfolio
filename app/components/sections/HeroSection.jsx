@@ -22,8 +22,9 @@ const mono = {
 export default function HeroSection() {
   return (
     <section style={{ height: '100vh', display: 'flex', flexDirection: 'column', paddingTop: 80, paddingBottom: 48 }}>
+
       {/* Center — name + subtitle */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
         <div>
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
@@ -35,8 +36,8 @@ export default function HeroSection() {
               color: '#e8dfc8', margin: 0,
             }}
           >
-            <ScrambleText text="Shrutik" duration={1100} delay={150} /><br />
-            <ScrambleText text="Kupekar" duration={1100} delay={450} />
+            <ScrambleText text="Shrutik" duration={1100} delay={0} /><br />
+            <ScrambleText text="Kupekar" duration={1100} delay={300} />
           </motion.h1>
 
           <motion.p
@@ -57,9 +58,10 @@ export default function HeroSection() {
               fontFamily: 'var(--font-inter, system-ui)',
               fontSize: 20, color: '#e8dfc8', marginTop: 16,
               maxWidth: 520, lineHeight: 1.7,
+              margin: '16px auto 0', textAlign: 'center',
             }}
           >
-            Building scalable systems, fast frontends,<br />and things that ship.
+            I turn &apos;can we build this?&apos; into &apos;it&apos;s live.&apos;
           </motion.p>
         </div>
       </div>

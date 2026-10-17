@@ -1,6 +1,6 @@
 import { Inter, Syne, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import GrainOverlay from './components/GrainOverlay';
+import MosaicBackground from './components/MosaicBackground';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne' });
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${syne.variable} ${jetbrains.variable} font-sans antialiased`}>
-        <GrainOverlay />
+        <MosaicBackground />
         {children}
       </body>
     </html>

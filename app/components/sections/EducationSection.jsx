@@ -18,9 +18,20 @@ const EDU = [
   },
 ];
 
-const label = {
+const labelStyle = {
   fontFamily: 'var(--font-jetbrains, monospace)',
   fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6b6355',
+};
+
+const bigHeading = {
+  fontFamily: 'var(--font-syne, system-ui)',
+  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontWeight: 800,
+  color: '#e8dfc8',
+  lineHeight: 0.95,
+  letterSpacing: '-0.03em',
+  margin: 0,
+  marginTop: 12,
 };
 
 const mono = {
@@ -28,17 +39,20 @@ const mono = {
   fontSize: 12, color: '#6b6355', letterSpacing: '0.08em',
 };
 
+const fadeUp = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+};
+
 export default function EducationSection() {
   return (
-    <section style={{ padding: '100px 0' }}>
-      <motion.p
-        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        style={{ ...label, marginBottom: 64 }}
-      >
-        E D U C A T I O N
-      </motion.p>
+    <section style={{ padding: '120px 0' }}>
+      <motion.div {...fadeUp} style={{ marginBottom: 72 }}>
+        <p style={labelStyle}>E D U C A T I O N</p>
+        <h2 style={bigHeading}>Where I Studied.</h2>
+      </motion.div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
         {EDU.map((e, i) => (
@@ -48,7 +62,6 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            style={{ borderTop: '1px solid #2a241a', paddingTop: 28 }}
           >
             <h3 style={{
               fontFamily: 'var(--font-syne, system-ui)',

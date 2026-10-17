@@ -46,26 +46,40 @@ const JOBS = [
   },
 ];
 
-const label = {
+const labelStyle = {
   fontFamily: 'var(--font-jetbrains, monospace)',
   fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#6b6355',
+};
+
+const bigHeading = {
+  fontFamily: 'var(--font-syne, system-ui)',
+  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontWeight: 800,
+  color: '#e8dfc8',
+  lineHeight: 0.95,
+  letterSpacing: '-0.03em',
+  margin: 0,
+  marginTop: 12,
+};
+
+const fadeUp = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
 export default function ExperienceSection() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section style={{ padding: '100px 0' }}>
-      <motion.p
-        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        style={{ ...label, marginBottom: 64 }}
-      >
-        E X P E R I E N C E
-      </motion.p>
+    <section style={{ padding: '120px 0' }}>
+      <motion.div {...fadeUp} style={{ marginBottom: 72 }}>
+        <p style={labelStyle}>E X P E R I E N C E</p>
+        <h2 style={bigHeading}>Where I've Worked.</h2>
+      </motion.div>
 
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
         {JOBS.map((job, i) => (
           <motion.div
             key={i}
@@ -76,7 +90,7 @@ export default function ExperienceSection() {
             whileHover={{ x: 8 }}
             onHoverStart={() => setHovered(i)}
             onHoverEnd={() => setHovered(null)}
-            style={{ borderTop: '1px solid #2a241a', padding: '36px 0' }}
+            style={{ padding: '40px 0' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
               <h3 style={{
