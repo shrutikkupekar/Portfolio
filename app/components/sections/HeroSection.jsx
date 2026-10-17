@@ -61,7 +61,7 @@ export default function HeroSection() {
               margin: '16px auto 0', textAlign: 'center',
             }}
           >
-            I turn can-we-build-this into it&apos;s live.
+            I turn ideas into shipped products.
           </motion.p>
         </div>
       </div>
