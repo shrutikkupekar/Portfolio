@@ -12,8 +12,8 @@ function initBlocks(canvas) {
     for (let col = 0; col < cols; col++) {
       blocks.push({
         col, row,
-        brightness: (Math.random() - 0.5) * 22,
-        target: (Math.random() - 0.5) * 22,
+        brightness: (Math.random() - 0.5) * 16,
+        target: (Math.random() - 0.5) * 16,
         speed: 0.05 + Math.random() * 0.05,
         nextChange: 20 + Math.random() * 60,
         lastDrawn: 0,
@@ -43,7 +43,7 @@ function animateMosaic(canvas, blocks) {
       b.brightness += (b.target - b.brightness) * b.speed;
       b.nextChange--;
       if (b.nextChange <= 0) {
-        b.target = (Math.random() - 0.5) * 22;
+        b.target = (Math.random() - 0.5) * 16;
         b.nextChange = 20 + Math.random() * 60;
       }
       if (Math.abs(b.brightness - b.lastDrawn) > 0.5) {
