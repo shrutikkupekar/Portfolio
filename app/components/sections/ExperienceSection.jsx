@@ -53,7 +53,7 @@ const labelStyle = {
 
 const bigHeading = {
   fontFamily: 'var(--font-syne, system-ui)',
-  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontSize: 'clamp(36px, 10vw, 130px)',
   fontWeight: 800,
   color: '#e8dfc8',
   lineHeight: 0.95,
@@ -126,7 +126,7 @@ export default function ExperienceSection() {
                   fontSize: 14, color: '#6b6355', lineHeight: 1.8,
                   display: 'flex', gap: 12,
                 }}>
-                  <span style={{ color: '#3a3228', flexShrink: 0 }}>→</span>
+                  <span style={{ color: '#3a3228', flexShrink: 0, fontFamily: 'var(--font-inter, system-ui)', fontVariantEmoji: 'text' }}>{'→︎'}</span>
                   {b}
                 </li>
               ))}

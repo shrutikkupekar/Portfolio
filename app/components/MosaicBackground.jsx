@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 const blockSize = 40;
 const baseColor = { r: 19, g: 16, b: 8 };
 
-function initBlocks(canvas) {
+function initBlocks(W, H) {
   const blocks = [];
-  const cols = Math.ceil(canvas.width / blockSize);
-  const rows = Math.ceil(canvas.height / blockSize);
+  const cols = Math.ceil(W / blockSize);
+  const rows = Math.ceil(H / blockSize);
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       blocks.push({
@@ -16,15 +16,16 @@ function initBlocks(canvas) {
         target: (Math.random() - 0.5) * 16,
         speed: 0.05 + Math.random() * 0.05,
         nextChange: 20 + Math.random() * 60,
-        lastDrawn: 0,
+        lastDrawn: null,
       });
     }
   }
   return blocks;
 }
 
-function drawStatic(canvas, blocks) {
+function drawStatic(canvas, blocks, dpr) {
   const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   blocks.forEach(b => {
     const r = Math.min(255, Math.max(0, baseColor.r + b.brightness));
     const g = Math.min(255, Math.max(0, baseColor.g + b.brightness));
@@ -34,8 +35,9 @@ function drawStatic(canvas, blocks) {
   });
 }
 
-function animateMosaic(canvas, blocks) {
+function animateMosaic(canvas, blocks, dpr) {
   const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   let rafId;
 
   function tick() {
@@ -46,7 +48,7 @@ function animateMosaic(canvas, blocks) {
         b.target = (Math.random() - 0.5) * 16;
         b.nextChange = 20 + Math.random() * 60;
       }
-      if (Math.abs(b.brightness - b.lastDrawn) > 0.5) {
+      if (b.lastDrawn === null || Math.abs(b.brightness - b.lastDrawn) > 0.5) {
         const v = b.brightness;
         const r = Math.min(255, Math.max(0, 19 + v));
         const g = Math.min(255, Math.max(0, 16 + v));
@@ -66,11 +68,12 @@ function animateMosaic(canvas, blocks) {
 export default function MosaicBackground() {
   useEffect(() => {
     const canvas = document.createElement('canvas');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const W = Math.floor(document.documentElement.clientWidth);
     const H = Math.floor(document.documentElement.clientHeight);
 
-    canvas.width = W;
-    canvas.height = H;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
     canvas.style.left = '0';
@@ -81,14 +84,14 @@ export default function MosaicBackground() {
 
     document.body.insertBefore(canvas, document.body.firstChild);
 
-    let blocks = initBlocks(canvas);
+    const blocks = initBlocks(W, H);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let cancelAnim;
     if (reduced) {
-      drawStatic(canvas, blocks);
+      drawStatic(canvas, blocks, dpr);
     } else {
-      cancelAnim = animateMosaic(canvas, blocks);
+      cancelAnim = animateMosaic(canvas, blocks, dpr);
     }
 
     return () => {

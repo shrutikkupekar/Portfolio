@@ -16,7 +16,7 @@ const labelStyle = {
 
 const bigHeading = {
   fontFamily: 'var(--font-syne, system-ui)',
-  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontSize: 'clamp(36px, 10vw, 130px)',
   fontWeight: 800,
   color: '#e8dfc8',
   lineHeight: 0.95,
@@ -35,7 +35,7 @@ export default function AboutSection() {
         <h2 style={bigHeading}>Who I Am.</h2>
       </motion.div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 72, alignItems: 'start' }}>
+      <div className="about-grid">
         {/* Left — text */}
         <motion.div
           {...fadeUp}

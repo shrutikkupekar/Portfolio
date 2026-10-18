@@ -10,6 +10,7 @@ const PROJECTS = [
     desc: 'Serverless chat with AI-powered summarize, rewrite, and fact-check. Persistent state in DynamoDB.',
     live: 'https://skynet-ai-chat-app.vercel.app/',
     github: 'https://github.com/shrutikkupekar',
+    githubLabel: 'github.com/shrutikkupekar',
   },
   {
     num: '02',
@@ -18,16 +19,39 @@ const PROJECTS = [
     desc: 'Distributed article ingestion with semantic dedup, Kafka pipeline, Redis cache, and RAG-based Q&A.',
     live: null,
     github: 'https://github.com/shrutikkupekar',
+    githubLabel: 'github.com/shrutikkupekar',
   },
   {
     num: '03',
+    name: 'comma.ai — connect (Open Source)',
+    stack: 'React · Redux · JavaScript · Open Source',
+    desc: 'Diagnosed and fixed a video playback bug in comma.ai\'s open-source connect web app. Replaced a broken redux-based stopwatch + 500ms sync loop with a design where the native video element drives playback time directly. Eliminated laggy seeks, loop glitches, and iOS Safari stalls. Contributed iOS hardware testing and a detailed PR review.',
+    live: null,
+    github: 'https://github.com/shrutikkupekar/connect/tree/video-playback',
+    githubLabel: 'github.com/shrutikkupekar/connect',
+  },
+  {
+    num: '04',
     name: 'Job Quest',
     stack: 'React · Vite · Node.js · Express · SQLite · JWT · PWA',
     desc: 'Job application tracker with JWT auth, custom Sand/Espresso themes, and a PWA-ready frontend backed by an Express + SQLite REST API.',
     live: 'https://job-quest-mauve.vercel.app/login',
     github: 'https://github.com/shrutikkupekar',
+    githubLabel: 'github.com/shrutikkupekar',
   },
 ];
+
+const ArrowRight = () => (
+  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginRight: 5 }}>
+    <path d="M1 5.5h9M6 2l4 3.5L6 9" />
+  </svg>
+);
+
+const ArrowUpRight = () => (
+  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginRight: 5 }}>
+    <path d="M2 9L9 2M3.5 2H9v5.5" />
+  </svg>
+);
 
 const labelStyle = {
   fontFamily: 'var(--font-jetbrains, monospace)',
@@ -36,7 +60,7 @@ const labelStyle = {
 
 const bigHeading = {
   fontFamily: 'var(--font-syne, system-ui)',
-  fontSize: 'clamp(72px, 10vw, 130px)',
+  fontSize: 'clamp(36px, 10vw, 130px)',
   fontWeight: 800,
   color: '#e8dfc8',
   lineHeight: 0.95,
@@ -125,23 +149,23 @@ export default function ProjectsSection() {
                   {p.desc}
                 </p>
 
-                <div style={{ display: 'flex', gap: 20 }}>
+                <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
                   {p.github && (
                     <a href={p.github} target="_blank" rel="noopener noreferrer"
-                      style={{ fontFamily: 'var(--font-inter, system-ui)', fontSize: 13, color: '#6b6355', textDecoration: 'underline', textUnderlineOffset: 3, transition: 'color 0.2s' }}
+                      style={{ fontFamily: 'var(--font-inter, system-ui)', fontSize: 13, color: '#6b6355', textDecoration: 'underline', textUnderlineOffset: 3, transition: 'color 0.2s', display: 'flex', alignItems: 'center' }}
                       onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
                       onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
                     >
-                      → github.com/shrutikkupekar
+                      <ArrowRight />{p.githubLabel}
                     </a>
                   )}
                   {p.live && (
                     <a href={p.live} target="_blank" rel="noopener noreferrer"
-                      style={{ fontFamily: 'var(--font-inter, system-ui)', fontSize: 13, color: '#6b6355', textDecoration: 'underline', textUnderlineOffset: 3, transition: 'color 0.2s' }}
+                      style={{ fontFamily: 'var(--font-inter, system-ui)', fontSize: 13, color: '#6b6355', textDecoration: 'underline', textUnderlineOffset: 3, transition: 'color 0.2s', display: 'flex', alignItems: 'center' }}
                       onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
                       onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
                     >
-                      ↗ Live
+                      <ArrowUpRight />Live
                     </a>
                   )}
                 </div>
