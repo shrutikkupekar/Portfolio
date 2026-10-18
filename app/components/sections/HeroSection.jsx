@@ -21,7 +21,7 @@ const mono = {
 
 export default function HeroSection() {
   return (
-    <section style={{ height: '100vh', display: 'flex', flexDirection: 'column', paddingTop: 80, paddingBottom: 48 }}>
+    <section style={{ height: '100vh', display: 'flex', flexDirection: 'column', paddingTop: 48, paddingBottom: 48 }}>
 
       {/* Center — name + subtitle */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
