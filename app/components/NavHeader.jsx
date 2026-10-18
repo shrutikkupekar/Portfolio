@@ -95,7 +95,7 @@ export default function NavHeader() {
               transition: 'background 0.2s, color 0.2s',
             }}
           >
-            Resume ↗
+            Resume <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 3 }}><path d="M2 9L9 2M3.5 2H9v5.5"/></svg>
           </a>
         </nav>
       </div>

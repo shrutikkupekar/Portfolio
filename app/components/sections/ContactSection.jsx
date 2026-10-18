@@ -73,8 +73,8 @@ export default function ContactSection() {
 
         <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap', marginBottom: 48 }}>
           {[
-            { href: 'https://github.com/shrutikkupekar', Icon: GitHubIcon, label: 'GitHub ↗', sub: 'github.com/shrutikkupekar' },
-            { href: 'https://www.linkedin.com/in/shrutik-kupekar/', Icon: LinkedInIcon, label: 'LinkedIn ↗', sub: 'linkedin.com/in/shrutik-kupekar' },
+            { href: 'https://github.com/shrutikkupekar', Icon: GitHubIcon, label: 'GitHub', sub: 'github.com/shrutikkupekar' },
+            { href: 'https://www.linkedin.com/in/shrutik-kupekar/', Icon: LinkedInIcon, label: 'LinkedIn', sub: 'linkedin.com/in/shrutik-kupekar' },
           ].map(({ href, Icon, label, sub }) => (
             <a key={label} href={href} target="_blank" rel="noopener noreferrer"
               style={{ textDecoration: 'none', color: '#6b6355', transition: 'color 0.2s' }}
@@ -83,7 +83,10 @@ export default function ContactSection() {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
                 <Icon />
-                <span style={{ fontFamily: 'var(--font-syne, system-ui)', fontSize: 20, fontWeight: 700 }}>{label}</span>
+                <span style={{ fontFamily: 'var(--font-syne, system-ui)', fontSize: 20, fontWeight: 700 }}>
+                  {label}
+                  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 5 }}><path d="M2 9L9 2M3.5 2H9v5.5"/></svg>
+                </span>
               </div>
               <p style={{ fontFamily: 'var(--font-jetbrains, monospace)', fontSize: 12, letterSpacing: '0.05em' }}>{sub}</p>
             </a>
@@ -104,7 +107,7 @@ export default function ContactSection() {
           onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
           onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
         >
-          Download Resume ↗
+          Download Resume <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 3 }}><path d="M2 9L9 2M3.5 2H9v5.5"/></svg>
         </a>
       </motion.div>
 

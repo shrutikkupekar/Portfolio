@@ -23,21 +23,19 @@ function initBlocks(W, H) {
   return blocks;
 }
 
-function drawStatic(canvas, blocks, dpr) {
-  const ctx = canvas.getContext('2d');
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function drawAll(ctx, blocks) {
   blocks.forEach(b => {
-    const r = Math.min(255, Math.max(0, baseColor.r + b.brightness));
-    const g = Math.min(255, Math.max(0, baseColor.g + b.brightness));
-    const bv = Math.min(255, Math.max(0, baseColor.b + b.brightness));
+    const v = b.brightness;
+    const r = Math.min(255, Math.max(0, 19 + v));
+    const g = Math.min(255, Math.max(0, 16 + v));
+    const bv = Math.min(255, Math.max(0, 8 + v));
     ctx.fillStyle = `rgb(${r},${g},${bv})`;
     ctx.fillRect(b.col * blockSize, b.row * blockSize, blockSize, blockSize);
+    b.lastDrawn = b.brightness;
   });
 }
 
-function animateMosaic(canvas, blocks, dpr) {
-  const ctx = canvas.getContext('2d');
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function startAnimation(ctx, blocks) {
   let rafId;
 
   function tick() {
@@ -68,34 +66,51 @@ function animateMosaic(canvas, blocks, dpr) {
 export default function MosaicBackground() {
   useEffect(() => {
     const canvas = document.createElement('canvas');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const W = Math.floor(document.documentElement.clientWidth);
-    const H = Math.floor(document.documentElement.clientHeight);
+    const dpr = window.devicePixelRatio || 1;
+    const cssW = document.documentElement.clientWidth;
+    const cssH = document.documentElement.clientHeight;
 
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
     canvas.style.left = '0';
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
     canvas.style.zIndex = '0';
     canvas.style.pointerEvents = 'none';
 
     document.body.insertBefore(canvas, document.body.firstChild);
 
-    const blocks = initBlocks(W, H);
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    const blocks = initBlocks(cssW, cssH);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    let cancelAnim;
     if (reduced) {
-      drawStatic(canvas, blocks, dpr);
-    } else {
-      cancelAnim = animateMosaic(canvas, blocks, dpr);
+      drawAll(ctx, blocks);
+      return () => canvas.remove();
     }
 
+    let cancelAnim = startAnimation(ctx, blocks);
+
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        cancelAnim();
+        // force redraw all blocks so nothing is stale after background pause
+        blocks.forEach(b => { b.lastDrawn = null; });
+        cancelAnim = startAnimation(ctx, blocks);
+      } else {
+        cancelAnim();
+      }
+    };
+
+    document.addEventListener('visibilitychange', onVisibility);
+
     return () => {
-      if (cancelAnim) cancelAnim();
+      cancelAnim();
+      document.removeEventListener('visibilitychange', onVisibility);
       canvas.remove();
     };
   }, []);

@@ -126,7 +126,9 @@ export default function ExperienceSection() {
                   fontSize: 14, color: '#6b6355', lineHeight: 1.8,
                   display: 'flex', gap: 12,
                 }}>
-                  <span style={{ color: '#3a3228', flexShrink: 0, fontFamily: 'var(--font-inter, system-ui)', fontVariantEmoji: 'text' }}>{'→︎'}</span>
+                  <span style={{ color: '#3a3228', flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+                    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 6h10M7 2l4 4-4 4"/></svg>
+                  </span>
                   {b}
                 </li>
               ))}
