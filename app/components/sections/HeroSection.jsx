@@ -76,12 +76,12 @@ export default function HeroSection() {
           <span style={{ ...mono, color: '#6b6355' }}>📍 Lancaster, CA</span>
           <span style={{ ...mono, color: '#3a3228' }}>·</span>
           <a
-            href="mailto:kupekarshrutik16@gmail.com"
+            href="mailto:shrutikskupekar@gmail.com"
             style={{ ...mono, color: '#6b6355', textDecoration: 'none', transition: 'color 0.2s' }}
             onMouseEnter={e => e.currentTarget.style.color = '#e8dfc8'}
             onMouseLeave={e => e.currentTarget.style.color = '#6b6355'}
           >
-            kupekarshrutik16@gmail.com
+            shrutikskupekar@gmail.com
           </a>
         </div>
 

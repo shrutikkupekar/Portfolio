@@ -57,7 +57,7 @@ export default function ContactSection() {
         </p>
 
         <a
-          href="mailto:kupekarshrutik16@gmail.com"
+          href="mailto:shrutikskupekar@gmail.com"
           style={{
             display: 'inline-block',
             fontFamily: 'var(--font-inter, system-ui)',
@@ -68,7 +68,7 @@ export default function ContactSection() {
           onMouseEnter={e => e.currentTarget.style.color = '#c8a96e'}
           onMouseLeave={e => e.currentTarget.style.color = '#e8dfc8'}
         >
-          kupekarshrutik16@gmail.com
+          shrutikskupekar@gmail.com
         </a>
 
         <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap', marginBottom: 48 }}>
