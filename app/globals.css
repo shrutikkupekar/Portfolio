@@ -41,3 +41,11 @@ html, body {
     gap: 40px;
   }
 }
+
+.nav-desktop { display: flex !important; }
+.nav-mobile { display: none !important; }
+
+@media (max-width: 768px) {
+  .nav-desktop { display: none !important; }
+  .nav-mobile { display: flex !important; }
+}
