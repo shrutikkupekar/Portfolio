@@ -4,6 +4,17 @@ import { motion } from 'framer-motion';
 
 const JOBS = [
   {
+    company: 'Lawly',
+    role: 'Full-Stack Developer Intern · Remote',
+    period: 'Oct 2026 – Present',
+    bullets: [
+      'Developing and maintaining features for Lawly\'s legal-tech web application using the existing full-stack technology stack',
+      'Investigating, debugging, and resolving software defects reported by the QA team while ensuring fixes do not introduce regressions',
+      'Implementing assigned features and bug fixes according to task cards and product requirements, writing clean and maintainable code',
+      'Collaborating with the project manager, QA team, and other developers to clarify requirements, communicate blockers, and resolve technical issues',
+    ],
+  },
+  {
     company: 'CSUF',
     role: 'Instructional Lab Assistant · Fullerton, CA',
     period: 'Aug 2025 – May 2026',
