@@ -19,8 +19,8 @@ export default function Home() {
         paddingRight: 'clamp(24px, 4vw, 64px)',
       }}>
         <HeroSection />
-        <ProjectsSection />
         <ExperienceSection />
+        <ProjectsSection />
         <SkillsSection />
         <AboutSection />
         <EducationSection />

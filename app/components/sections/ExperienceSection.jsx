@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const JOBS = [
   {
     company: 'Lawly',
-    role: 'Full-Stack Developer Intern · Remote',
+    role: 'Full-Stack Developer Intern · Santa Monica, CA',
     period: 'Oct 2026 – Present',
     bullets: [
       'Developing and maintaining features for Lawly\'s legal-tech web application using the existing full-stack technology stack',
@@ -43,6 +43,15 @@ const JOBS = [
       'Collaborated directly with the CEO on system architecture and key technical decisions for a mental health application',
       'Increased weekly active users by 70% through UI/UX improvements, offline-first functionality, and background synchronization',
       'Contributed to developer hiring and mentorship while establishing code review standards and engineering best practices',
+    ],
+  },
+  {
+    company: 'Learning by Locals',
+    role: 'Volunteer Instructor · Non-Profit · Delhi, India',
+    period: 'Mar 2021 – May 2021',
+    bullets: [
+      'Taught web development fundamentals including responsive design and clean coding practices',
+      'Designed structured lesson plans and hands-on exercises to help students build real frontend projects',
     ],
   },
   {
