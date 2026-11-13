@@ -8,10 +8,11 @@ const JOBS = [
     role: 'Full-Stack Developer Intern · Santa Monica, CA',
     period: 'Oct 2026 – Present',
     bullets: [
-      'Developing and maintaining features for Lawly\'s legal-tech web application using the existing full-stack technology stack',
-      'Investigating, debugging, and resolving software defects reported by the QA team while ensuring fixes do not introduce regressions',
-      'Implementing assigned features and bug fixes according to task cards and product requirements, writing clean and maintainable code',
-      'Collaborating with the project manager, QA team, and other developers to clarify requirements, communicate blockers, and resolve technical issues',
+      'Build and fix full-stack features for a live education marketplace across Next.js, Node.js/Fastify, and PostgreSQL',
+      'Own Stripe payment and checkout flows (processing fees, discounts, consultant payouts); fixed calculations across checkout types to charge exact Stripe fees, preventing revenue loss from rounded totals',
+      'Cut checkout confirmation time from 24+ sec to ~1 sec, eliminating ~250 unnecessary Stripe API calls per purchase',
+      'Resolved a P1 Stripe Connect onboarding bug that allowed consultants to accept bookings before completing payment setup',
+      'Manage AWS (S3, CloudFront) and Vercel; built a CloudFront CDN that fixed slow and broken profile images',
     ],
   },
   {
